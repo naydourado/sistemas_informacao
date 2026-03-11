@@ -1,0 +1,150 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;1,300&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap');
+
+
+
+
+:root{
+    --body_background: #f8f8f8;
+    --main_background: #F8F3E1;
+    --strong_color: #41431B;
+    --border_color: #808080;
+    --button_text: #AEB784;
+    --button_background: #f3f5f9;
+    --button_hover : #e0e7ff;
+
+}
+
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+body {
+    background: var(--body_background);
+    color: rgb(26, 26, 51);
+    font-family: "Lato", sans-serif;
+    font-weight: 400;
+}
+
+.destaque_introducao {
+    color: var(--strong_color);
+    font-size: 700;
+}
+
+header {
+    background: var(--main_background);
+    border-bottom: 1px solid var(--border_color);
+    padding: 14px 20px;
+    font-family: "Roboto Mono", monospace;
+}
+
+header h1 {
+    color: black;
+    text-align: center;
+    font-size: 25px;
+}
+
+footer {
+    background: var(--main_background);
+    border-top: 1px solid #808080;
+    text-align: center;
+    font-size: 14px;
+    padding: 14px 20px;
+    font-family: "Roboto Mono", monospace;
+
+}
+
+main {
+    max-width: 980px;
+    background: var(--main_background);
+    padding: 24px;
+    margin: 16px auto;
+    border:  1px solid var(--border_color);
+    border-radius: 14px;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+main h2 {
+    grid-column: 1 / -1;
+    text-align: center;
+    font-size: 26px;
+}
+
+.main_intro {
+    grid-column: 1 / -1;
+    border-bottom:  1px solid  var(--border_color);
+    padding-bottom: 20px;
+}
+
+main h3 {
+    text-align: center;
+    align-self: center;
+}
+
+main ul{
+    line-height: 1.8;
+    padding-left: 50px;
+    padding-top: 20px;
+    justify-self: center;
+}
+
+.main_doc {
+    grid-column: 1 / -1;
+    border-top:  1px solid  var(--border_color);
+    padding-top: 20px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.main_doc a {
+    background: var(--button_background);
+    padding: 8px 12px;
+    border-radius: 8px;
+    color: var(--button_text);
+    font-weight: 600;
+    text-decoration: none;
+    width: fit-content;
+}
+
+.main_doc a:hover {
+    background: var(--button_hover);
+
+}
+
+main img{
+    grid-column: 1 / -1;
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 12px;
+}
+
+.header_nav_container {
+    max-width: 980px;
+    margin: 12px auto 12px auto;
+}
+
+header nav {
+    display: flex;
+    gap: 20px;
+}
+
+header nav a {
+    background: var(--button_background);
+    padding: 8px 12px;
+    border-radius: 8px;
+    color: var(--button_text);
+    font-weight: 600;
+    text-decoration: none;
+    width: fit-content;
+}
+
+header nav a:hover {
+    background: var(--button_background);
+}
