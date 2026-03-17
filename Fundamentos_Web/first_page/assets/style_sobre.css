@@ -1,3 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+:root {
+    --body_background: #f8f8f8;
+    --main_background: #faded1;
+    --strong_color: #41431B;
+    --border_color: #808080;
+    --button_text: #eb4f98;
+    --button_background: #f3f5f9;
+    --button_hover: #dbdee7;
+    --text_hover: #000000;
+}
+
+
 * {
     padding: 0;
     margin: 0;
@@ -30,7 +44,7 @@ header {
 }
 
 #navbar button:hover {
-    background-color: #133379;
+    background-color: var(--button_hover);
     cursor: pointer;
 }
 
@@ -40,9 +54,9 @@ a {
 }
 
 #navbar button:hover a {
-    color: #fff;
-    font-weight: 500;
-} 
+    color: var(--text_hover);
+    font-weight: 800;
+}
 
 .foto {
     max-width: 400px;
@@ -75,7 +89,7 @@ main {
 }
 
 .text {
-    max-width: 52%;           
+    max-width: 52%;
     background: rgba(255, 255, 255, 0.08);
     padding: 2rem;
     border-radius: 16px;
@@ -89,9 +103,19 @@ main {
     margin-bottom: 1.2rem;
 }
 
+.text ul {
+    margin: 1rem 0 1.2rem 1.5rem;
+    padding-left: 1rem;
+}
+
+.text li {
+    margin-bottom: 0.4rem;
+}
+
 .frase {
     margin-top: 2rem;
 }
+
 .frase img {
     border-radius: 20px;
     max-width: 400px;
