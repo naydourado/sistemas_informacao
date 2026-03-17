@@ -1,0 +1,19 @@
+CREATE DATABASE nodelogin;
+USE nodelogin;
+
+CREATE TABLE accounts (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(50) NOT NULL,
+    password VARCHAR(255) NOT NULL
+);
+
+INSERT INTO accounts (username, password)
+VALUES ('test', '123');
+
+UPDATE accounts SET password = SHA2('test', 256) WHERE id=1;
+
+ALTER TABLE accounts
+ADD email VARCHAR(100);
+
+INSERT INTO accounts (username, password, email)
+VALUES ('joao', SHA2('senha123', 256), 'joao@exemplo.com');
