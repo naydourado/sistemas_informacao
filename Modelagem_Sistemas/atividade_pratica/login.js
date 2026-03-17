@@ -37,9 +37,9 @@ app.post('auth/', function (request, response) {
         // Gera o hash SHA-256 da senha informada
         const hash = crypto.createHash('sha256').update(password).digest('hex');
         
-        // Busca 
-        if (username && password) {
-            connection.query('SELECT * FROM accounts WHERE username = ? AND password = ?', 
+        // Busca o usuário com a senha criptografada
+        connection.query(
+            'SELECT * FROM accounts WHERE username = ? AND password = ?', 
             [username, hash], 
             function (error, results) {
                 if (error) throw error;
@@ -53,7 +53,7 @@ app.post('auth/', function (request, response) {
                 }
                 response.end();
             }
-        });
+        );
     } else {
         response.send('Preencha o usuário e a senha');
         response.end();
