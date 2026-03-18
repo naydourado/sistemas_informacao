@@ -1,4 +1,6 @@
-const mysql = require("mysql");
+// @autor Nayra, Isabela e Brunno
+
+const mysql = require("mysql2");
 const express = require("express");
 const session = require("express-session");
 const path = require("path");
@@ -9,7 +11,7 @@ const crypto = require('crypto')
 const connection = mysql.createConnection({
     host: 'localhost',
     user: 'root',
-    password: '',
+    password: 'senai',
     database: 'nodelogin'
 });
 
@@ -29,7 +31,7 @@ app.get('/', function (request, response) {
     response.sendFile(path.join(__dirname + '/login.html'));
 });
 
-app.post('auth/', function (request, response) {
+app.post('/auth', function (request, response) {
     let username = request.body.username;
     let password = request.body.password;
 
