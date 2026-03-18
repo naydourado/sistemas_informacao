@@ -13,7 +13,7 @@ body {
     justify-content: center;
     align-items: center;
     color: #333;
-    background-color: #435165;
+    background-color: #0c3878;
 }
 
 /* Login */
@@ -116,8 +116,7 @@ body {
 }
 
 .container h1 {
-    margin-bottom: 15px;
-    color: #4f46e5;
+    margin-bottom: 5px;
 }
 
 .container p {
@@ -127,14 +126,20 @@ body {
 
 .container a {
     text-decoration: none;
-    padding: 10px 20px;
-    background: #ef4444;
     color: white;
-    border-radius: 6px;
-    transition: 0.3s;
+    font-size: 15px;
 }
 
-.container a:hover {
+.container button {
+    padding: 5px 15px;
+    background: #ef4444;
+    border: none;
+    border-radius: 6px;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.container button:hover {
     background: #b91c1c;
 }
 

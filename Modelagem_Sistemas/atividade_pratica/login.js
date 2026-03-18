@@ -11,7 +11,7 @@ const crypto = require('crypto')
 const connection = mysql.createConnection({
     host: 'localhost',
     user: 'root',
-    password: 'senai',
+    password: '',
     database: 'nodelogin'
 });
 
