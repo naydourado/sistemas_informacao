@@ -1,0 +1,29 @@
+/* .button {
+    color: white;
+    background-color: red;
+    height: 50px;
+    width: 128px;
+    border: 1px solid #000000;
+    border-radius: 10px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.button:hover {
+    background-color: rgb(165, 101, 101);
+}
+
+.container {
+    width: 900px;
+    background-color: aquamarine;
+
+    display: flex;
+}
+
+.card {
+    width: 250px;
+    height: 150px;
+    background: white;
+    border: 1px solid black;
+    margin: 10px;
+} */
