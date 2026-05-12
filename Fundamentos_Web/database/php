@@ -11,38 +11,35 @@ if ($conexao->connect_error) {
     die("Erro na conexão: " . $conexao->connect_error . "\n");
 }
 
+echo "Conectado com sucesso!\n";
+
 function buscarFuncaoFuncionario($conexao, $nomeFuncionario) {
+
     $sql = "
         SELECT funcionarios.nome, funcoes.descricao
-        FROM funcionarios
-        INNER JOIN funcoes
-        ON funcionarios.id_funcao = funcoes.id
-        WHERE funcionarios.nome = ?
+        FROM funcionarios, funcoes
+        WHERE funcionarios.id_funcao = funcoes.id
+        AND funcionarios.nome = '$nomeFuncionario'
     ";
 
-    $consulta = $conexao->prepare($sql);
+    $resultado = $conexao->query($sql);
 
-    if (!$consulta) {
+    if (!$resultado) {
         die("Erro na consulta: " . $conexao->error . "\n");
     }
 
-    $consulta->bind_param("s", $nomeFuncionario);
-
-    if (!$consulta->execute()) {
-        die("Erro ao executar: " . $consulta->error . "\n");
-    }
-
-    $resultado = $consulta->get_result();
-
     if ($resultado->num_rows > 0) {
+
         $linha = $resultado->fetch_assoc();
 
-        echo "Funcionario " . $linha["nome"] . " tem a funcao " . $linha["descricao"] . "\n";
-    } else {
-        echo "Funcionario " . $nomeFuncionario . " nao encontrado.\n";
-    }
+        echo "Funcionario " . $linha["nome"] .
+             " tem a funcao " . $linha["descricao"] . "\n";
 
-    $consulta->close();
+    } else {
+
+        echo "Funcionario nao encontrado.\n";
+
+    }
 }
 
 buscarFuncaoFuncionario($conexao, "Joao");
