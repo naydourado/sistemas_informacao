@@ -8,77 +8,41 @@ $banco = "empresa";
 $conexao = new mysqli($servidor, $usuario, $senha, $banco);
 
 if ($conexao->connect_error) {
-    die("Erro na conexão: " . $conexao->connect_error . ".\n");
+    die("Erro na conexão: " . $conexao->connect_error . "\n");
 }
 
-echo "Conectou ao banco de dados com sucesso!\n";
-
 function buscarFuncaoFuncionario($conexao, $nomeFuncionario) {
-    if ($nomeFuncionario == "") {
-        echo "Erro: informe o nome do funcionário.\n";
-        return;
+    $sql = "
+        SELECT funcionarios.nome, funcoes.descricao
+        FROM funcionarios
+        INNER JOIN funcoes
+        ON funcionarios.id_funcao = funcoes.id
+        WHERE funcionarios.nome = ?
+    ";
+
+    $consulta = $conexao->prepare($sql);
+
+    if (!$consulta) {
+        die("Erro na consulta: " . $conexao->error . "\n");
     }
 
-    $sqlFuncionario = "SELECT id_funcao FROM funcionarios WHERE nome = ?";
+    $consulta->bind_param("s", $nomeFuncionario);
 
-    $consultaFuncionario = $conexao->prepare($sqlFuncionario);
-
-    if ($consultaFuncionario == false) {
-        echo "Erro ao preparar a busca do funcionário: " . $conexao->error . "\n";
-        return;
+    if (!$consulta->execute()) {
+        die("Erro ao executar: " . $consulta->error . "\n");
     }
 
-    $consultaFuncionario->bind_param("s", $nomeFuncionario);
+    $resultado = $consulta->get_result();
 
-    if (!$consultaFuncionario->execute()) {
-        echo "Erro ao buscar funcionário: " . $consultaFuncionario->error . "\n";
-        $consultaFuncionario->close();
-        return;
+    if ($resultado->num_rows > 0) {
+        $linha = $resultado->fetch_assoc();
+
+        echo "Funcionario " . $linha["nome"] . " tem a funcao " . $linha["descricao"] . "\n";
+    } else {
+        echo "Funcionario " . $nomeFuncionario . " nao encontrado.\n";
     }
 
-    $resultadoFuncionario = $consultaFuncionario->get_result();
-
-    if ($resultadoFuncionario->num_rows == 0) {
-        echo "Funcionário " . $nomeFuncionario . " não encontrado.\n";
-        $consultaFuncionario->close();
-        return;
-    }
-
-    $funcionario = $resultadoFuncionario->fetch_assoc();
-    $idFuncao = $funcionario["id_funcao"];
-
-    $consultaFuncionario->close();
-
-    $sqlFuncao = "SELECT descricao FROM funcoes WHERE id = ?";
-
-    $consultaFuncao = $conexao->prepare($sqlFuncao);
-
-    if ($consultaFuncao == false) {
-        echo "Erro ao preparar a busca da função: " . $conexao->error . "\n";
-        return;
-    }
-
-    $consultaFuncao->bind_param("i", $idFuncao);
-
-    if (!$consultaFuncao->execute()) {
-        echo "Erro ao buscar função: " . $consultaFuncao->error . "\n";
-        $consultaFuncao->close();
-        return;
-    }
-
-    $resultadoFuncao = $consultaFuncao->get_result();
-
-    if ($resultadoFuncao->num_rows == 0) {
-        echo "Função não encontrada.\n";
-        $consultaFuncao->close();
-        return;
-    }
-
-    $funcao = $resultadoFuncao->fetch_assoc();
-
-    echo "Funcionario " . $nomeFuncionario . " tem a funcao " . $funcao["descricao"] . "\n";
-
-    $consultaFuncao->close();
+    $consulta->close();
 }
 
 buscarFuncaoFuncionario($conexao, "Joao");
