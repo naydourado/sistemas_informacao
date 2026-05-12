@@ -13,7 +13,7 @@ if ($conexao->connect_error) {
 
 echo "Conectado com sucesso!\n";
 
-function buscarFuncaoFuncionario($conexao, $nomeFuncionario) {
+function buscarFuncaoFuncionario($conexao, $nomeFuncionario){
 
     $sql = "
         SELECT funcionarios.nome, funcoes.descricao
@@ -24,21 +24,21 @@ function buscarFuncaoFuncionario($conexao, $nomeFuncionario) {
 
     $resultado = $conexao->query($sql);
 
-    if (!$resultado) {
+    if (!$resultado){
         die("Erro na consulta: " . $conexao->error . "\n");
     }
 
-    if ($resultado->num_rows > 0) {
+    if ($resultado->num_rows > 0){
 
-        $linha = $resultado->fetch_assoc();
+        while($funcionario = $resultado->fetch_assoc()){
 
-        echo "Funcionario " . $linha["nome"] .
-             " tem a funcao " . $linha["descricao"] . "\n";
+            echo "Funcionario " . $funcionario["nome"] .
+                 " tem a funcao " . $funcionario["descricao"] . "\n";
+        }
 
     } else {
 
         echo "Funcionario nao encontrado.\n";
-
     }
 }
 
