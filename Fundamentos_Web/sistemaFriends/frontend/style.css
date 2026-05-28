@@ -1,0 +1,17 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    /* Divide a tela na metade verticalmente (90deg), metade azul claro e metade cinza */
+    height: 100vh;
+    background-image: linear-gradient(90deg, #ADD8E6 50%, #D3D3D3 50%);
+    
+    /* Centraliza o texto */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial, sans-serif;
+}
