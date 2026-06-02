@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Friends | Login</title>
+    <title>Friends | Cadastro</title>
 
     <link rel="icon" href="./assets/retrato.png" type="image/png">
     <link rel="stylesheet" href="style.css">
@@ -19,10 +19,16 @@
         <div class="login-box">
             <img class="logo" src="./assets/logo.png" alt="Logo Friends">
 
-            <h2>Bem-vindo de volta!</h2>
-            <h3>Faça login para continuar</h3>
+            <h2>Bem-vindo ao espaço!</h2>
+            <h3>Crie uma conta para acessar</h3>
 
             <form action="home.html" method="post">
+                <label>E-mail</label>
+                <div class="input-box">
+                    <img src="./assets/email.png" alt="Email">
+                    <input type="email" placeholder="username@gmail.com">
+                </div>
+
                 <label>Usuário</label>
                 <div class="input-box">
                     <img src="./assets/user.png" alt="Usuário">
@@ -35,11 +41,11 @@
                     <input type="password" placeholder="********">
                 </div>
 
-                <button type="submit">Entrar</button>
+                <button type="submit">Cadastrar</button>
 
                 <p>
-                    Não tem uma conta?
-                    <a href="cadastro.html">Crie uma</a>
+                    Já tem uma conta?
+                    <a href="index.html">Entrar</a>
                 </p>
             </form>
         </div>

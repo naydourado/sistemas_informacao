@@ -1,0 +1,3 @@
+abrir o xampp
+abrir onde fica o htdocs do xampp e criar nosso projeto (no explore)
+abre o apache no navegador e troca dashboard pelo nome da pasta
