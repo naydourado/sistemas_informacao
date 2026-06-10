@@ -7,7 +7,8 @@
     <title>Friends | Login</title>
 
     <link rel="icon" href="./assets/retrato.png" type="image/png">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/style.css">
+    
 </head>
 
 <body>
@@ -22,20 +23,20 @@
             <h2>Bem-vindo de volta!</h2>
             <h3>Faça login para continuar</h3>
 
-            <form action="home.html" method="post">
+            <form action="php/verificar_usuario.php" method="post">
                 <label>Usuário</label>
                 <div class="input-box">
                     <img src="./assets/user.png" alt="Usuário">
-                    <input type="text" placeholder="username">
+                    <input id="usuario" name="usuario" type="text" placeholder="username">
                 </div>
 
                 <label>Senha</label>
                 <div class="input-box">
                     <img src="./assets/password.png" alt="Senha">
-                    <input type="password" placeholder="********">
+                    <input id="senha" name="senha" type="password" placeholder="********">
                 </div>
 
-                <button type="submit">Entrar</button>
+                <button type="submit" id="btnEntrar">Entrar</button>
 
                 <p>
                     Não tem uma conta?
@@ -44,6 +45,7 @@
             </form>
         </div>
     </div>
+    <script src="js/script.js"></script>
 </body>
 
 </html>
