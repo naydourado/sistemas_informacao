@@ -20,9 +20,9 @@ $stmt = $conn->prepare($sql);
 $stmt->bind_param("sss", $usuario, $senha, $email);
 
 if ($stmt->execute()){
-    header("Location: index.html?msg=USUARIO CADASTRADO COM SUCESSO");
+    header("Location: ../index.html?msg=USUARIO CADASTRADO COM SUCESSO");
 } else {
-    header("Location: index.html?msg=ERRO AO CADASTRAR USUARIO");
+    header("Location: ../index.html?msg=ERRO AO CADASTRAR USUARIO");
 }
 
 $stmt->close();
